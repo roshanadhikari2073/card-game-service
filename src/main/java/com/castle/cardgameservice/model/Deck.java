@@ -8,7 +8,7 @@ import java.util.*;
 /**
  * Represents a deck of playing cards, supporting operations like shuffle, deal, and return.
  * The deck is automatically initialized and shuffled upon creation.
- *
+ * <p>
  * Author: Roshan Adhikari
  */
 public class Deck {

@@ -8,4 +8,5 @@ import com.castle.cardgameservice.model.enums.CardValue;
  *
  * @author Roshan Adhikari
  */
-public record Card(CardSuit suit, CardValue value) { }
+public record Card(CardSuit suit, CardValue value) {
+}
