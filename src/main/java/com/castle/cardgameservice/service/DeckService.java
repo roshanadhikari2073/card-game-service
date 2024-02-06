@@ -52,7 +52,7 @@ public class DeckService {
      */
     public List<CardDTO> shuffleDeck(UUID sessionId) throws ResponseStatusException {
         if (sessionId == null) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Invalid session ID");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Session ID cannot be null");
         }
 
         Deck deck = gameSessionService.retrieveSession(sessionId);

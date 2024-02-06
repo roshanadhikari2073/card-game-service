@@ -43,8 +43,7 @@ public class Deck {
         return cards.poll();
     }
 
-    public boolean returnCard(Card card) {
+    public void returnCard(Card card) {
         cards.offerLast(card);
-        return false;
     }
 }

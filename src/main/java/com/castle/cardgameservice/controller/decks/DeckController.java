@@ -5,7 +5,9 @@ import com.castle.cardgameservice.service.DeckService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
+import java.util.List;
 import java.util.UUID;
 
 /**
@@ -41,9 +43,9 @@ public class DeckController {
      * @return ResponseEntity with no content if successful, or a bad request if the session is not found
      */
     @PostMapping("/shuffle")
-    public ResponseEntity<Void> shuffleDeck(@PathVariable UUID sessionId) {
-        deckService.shuffleDeck(sessionId);
-        return ResponseEntity.ok().build();
+    public ResponseEntity<List<CardDTO>> shuffleDeck(@PathVariable UUID sessionId) {
+        List<CardDTO> shuffledCards = deckService.shuffleDeck(sessionId);
+        return ResponseEntity.ok(shuffledCards);
     }
 
     /**
