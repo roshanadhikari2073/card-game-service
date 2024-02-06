@@ -15,10 +15,6 @@ public class DeckRepository {
 
     private final Deck deck = new Deck();
 
-    public DeckRepository() {
-        deck.initialize();
-    }
-
     public Deck getDeck() {
         return deck;
     }
