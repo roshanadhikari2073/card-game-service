@@ -1,7 +1,5 @@
 package com.castle.cardgameservice.model;
 
-import lombok.RequiredArgsConstructor;
-
 /**
  * Represents a playing card with a suit and a value.
  *

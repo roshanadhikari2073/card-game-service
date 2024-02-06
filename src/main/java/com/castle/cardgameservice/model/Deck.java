@@ -1,7 +1,6 @@
 package com.castle.cardgameservice.model;
 
 import java.util.*;
-import java.util.stream.Stream;
 
 /**
  * Represents a deck of playing cards, supporting operations like shuffle, deal, and return.
