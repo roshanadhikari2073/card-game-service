@@ -1,9 +1,6 @@
 package com.castle.cardgameservice.model;
 
-import java.util.Collections;
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.LinkedList;
+import java.util.*;
 
 /**
  * Represents a deck of playing cards, supporting operations like shuffle, deal, and return.
@@ -36,7 +33,10 @@ public class Deck {
     }
 
     public void shuffle() {
-        Collections.shuffle(new LinkedList<>(cards));
+        List<Card> shuffledList = new LinkedList<>(cards);
+        Collections.shuffle(shuffledList);
+        cards.clear();
+        cards.addAll(shuffledList);
     }
 
     public Card deal() {

@@ -13,17 +13,14 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class DeckRepository {
 
-    private final Deck deck = new Deck(); // Placeholder for a single deck instance
+    private final Deck deck = new Deck();
 
     public DeckRepository() {
-        // Initialize the deck with cards
         deck.initialize();
     }
 
     public Deck getDeck() {
-        // In a more complex implementation, this could retrieve a deck by ID
         return deck;
     }
 
-    // Future methods for managing multiple decks could be added here
 }
