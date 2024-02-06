@@ -5,6 +5,7 @@ import com.castle.cardgameservice.dto.CardDTO;
 import com.castle.cardgameservice.model.Card;
 import com.castle.cardgameservice.service.DeckService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,18 +30,18 @@ public class DeckController {
     @GetMapping("/deal")
     public ResponseEntity<CardDTO> dealCard() {
         Card card = deckService.dealCard();
-        return ResponseEntity.ok(new CardDTO(card.getSuit(), card.getValue()));
+        return ResponseEntity.ok(new CardDTO(card.suit(), card.value()));
     }
 
     @PostMapping("/shuffle")
-    public ResponseEntity<Void> shuffleDeck() {
+    @ResponseStatus(HttpStatus.OK)
+    public void shuffleDeck() {
         deckService.shuffleDeck();
-        return ResponseEntity.ok().build();
     }
 
     @PostMapping("/return")
-    public ResponseEntity<Void> returnCard(@RequestBody CardDTO cardDTO) {
+    @ResponseStatus(HttpStatus.OK)
+    public void returnCard(@RequestBody CardDTO cardDTO) {
         deckService.returnCard(new Card(cardDTO.suit(), cardDTO.value()));
-        return ResponseEntity.ok().build();
     }
 }
