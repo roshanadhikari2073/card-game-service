@@ -3,7 +3,7 @@ package com.castle.cardgameservice.model;
 /**
  * Represents a playing card with a suit and a value.
  *
- * Author: Roshan Adhikari
+ * @author Roshan Adhikari
  */
 public class Card {
     CardSuit suit;
