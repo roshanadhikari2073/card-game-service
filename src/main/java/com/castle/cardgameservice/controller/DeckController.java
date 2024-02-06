@@ -2,7 +2,6 @@ package com.castle.cardgameservice.controller;
 
 import com.castle.cardgameservice.dto.CardDTO;
 import com.castle.cardgameservice.service.DeckService;
-import com.castle.cardgameservice.service.GameSessionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +17,7 @@ import java.util.UUID;
  * Author: Roshan Adhikari
  */
 @RestController
-@RequestMapping("/api/games/{sessionId}/deck")
+@RequestMapping("/api/v1/games/{sessionId}/deck")
 @RequiredArgsConstructor
 public class DeckController {
 

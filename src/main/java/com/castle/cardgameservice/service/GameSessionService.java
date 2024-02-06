@@ -31,7 +31,7 @@ public class GameSessionService {
      * @param sessionId The UUID of the session.
      * @return The Deck associated with the session, or null if not found.
      */
-    public Deck getDeck(UUID sessionId) {
+    public Deck retrieveSession(UUID sessionId) {
         return sessions.get(sessionId);
     }
 

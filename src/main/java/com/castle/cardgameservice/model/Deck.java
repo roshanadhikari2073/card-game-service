@@ -25,6 +25,10 @@ public class Deck {
         shuffle();
     }
 
+    public List<Card> getCards() {
+        return new ArrayList<>(cards);
+    }
+
     public void shuffle() {
         List<Card> shuffledList = new LinkedList<>(cards);
         Collections.shuffle(shuffledList);

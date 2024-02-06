@@ -13,7 +13,7 @@ import java.util.UUID;
  * @author Roshan Adhikari
  */
 @RestController
-@RequestMapping("/api/games")
+@RequestMapping("/api/v1/games")
 @RequiredArgsConstructor
 public class GameController {
 
@@ -21,7 +21,10 @@ public class GameController {
 
     @PostMapping("/create")
     public ResponseEntity<UUID> createGameSession() {
-        UUID sessionId = gameSessionService.createSession();
-        return ResponseEntity.ok(sessionId);
+        try {
+            return ResponseEntity.ok(gameSessionService.createSession());
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().build();
+        }
     }
 }

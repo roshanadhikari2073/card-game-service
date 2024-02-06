@@ -6,7 +6,9 @@ import com.castle.cardgameservice.model.Deck;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 /**
  * Service layer for handling the business logic of deck operations.
@@ -28,7 +30,7 @@ public class DeckService {
     public CardDTO dealCard(UUID sessionId) {
         if (sessionId == null) {throw new IllegalArgumentException("Invalid session ID.");}
 
-        Deck deck = gameSessionService.getDeck(sessionId);
+        Deck deck = gameSessionService.retrieveSession(sessionId);
         if (deck == null) {throw new IllegalStateException("Session not found for ID: " + sessionId);}
 
         Card card = deck.deal();
@@ -40,12 +42,15 @@ public class DeckService {
      *
      * @param sessionId the UUID of the session
      */
-    public void shuffleDeck(UUID sessionId) {
-        Deck deck = gameSessionService.getDeck(sessionId);
+    public List<CardDTO> shuffleDeck(UUID sessionId) {
+        Deck deck = gameSessionService.retrieveSession(sessionId);
         if (deck == null) {
             throw new IllegalStateException("Session not found for ID: " + sessionId);
         }
         deck.shuffle();
+        return deck.getCards().stream()
+                .map(card -> new CardDTO(card.suit(), card.value()))
+                .collect(Collectors.toList());
     }
 
     /**
@@ -55,7 +60,7 @@ public class DeckService {
      * @param cardDTO the card to return
      */
     public void returnCard(UUID sessionId, CardDTO cardDTO) {
-        Deck deck = gameSessionService.getDeck(sessionId);
+        Deck deck = gameSessionService.retrieveSession(sessionId);
         if (deck == null) {
             throw new IllegalStateException("Session not found for ID: " + sessionId);
         }
