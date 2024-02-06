@@ -1,7 +1,7 @@
 package com.castle.cardgameservice.dto;
 
-import com.castle.cardgameservice.model.CardSuit;
-import com.castle.cardgameservice.model.CardValue;
+import com.castle.cardgameservice.model.enums.CardSuit;
+import com.castle.cardgameservice.model.enums.CardValue;
 
 /**
  * Data Transfer Object for Card information.

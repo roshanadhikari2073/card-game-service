@@ -1,4 +1,4 @@
-package com.castle.cardgameservice.controller;
+package com.castle.cardgameservice.controller.swagger;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

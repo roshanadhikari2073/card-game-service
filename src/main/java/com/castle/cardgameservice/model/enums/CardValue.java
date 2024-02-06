@@ -1,4 +1,4 @@
-package com.castle.cardgameservice.model;
+package com.castle.cardgameservice.model.enums;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 

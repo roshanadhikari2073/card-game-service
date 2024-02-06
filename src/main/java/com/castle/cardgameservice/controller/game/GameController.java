@@ -1,4 +1,4 @@
-package com.castle.cardgameservice.controller;
+package com.castle.cardgameservice.controller.game;
 
 import com.castle.cardgameservice.service.GameSessionService;
 import lombok.RequiredArgsConstructor;

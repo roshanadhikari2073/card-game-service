@@ -2,6 +2,10 @@ package com.castle.cardgameservice.service;
 
 import com.castle.cardgameservice.model.Deck;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
+import org.springframework.http.HttpStatus;
+
+
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
@@ -31,8 +35,12 @@ public class GameSessionService {
      * @param sessionId The UUID of the session.
      * @return The Deck associated with the session, or null if not found.
      */
-    public Deck retrieveSession(UUID sessionId) {
-        return sessions.get(sessionId);
+    public Deck retrieveSession(UUID sessionId) throws ResponseStatusException {
+        Deck deck = sessions.get(sessionId);
+        if (deck == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Session not found for ID: " + sessionId);
+        }
+        return deck;
     }
 
 }

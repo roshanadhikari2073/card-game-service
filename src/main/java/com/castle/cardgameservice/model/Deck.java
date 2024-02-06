@@ -1,5 +1,8 @@
 package com.castle.cardgameservice.model;
 
+import com.castle.cardgameservice.model.enums.CardSuit;
+import com.castle.cardgameservice.model.enums.CardValue;
+
 import java.util.*;
 
 /**
@@ -40,7 +43,8 @@ public class Deck {
         return cards.poll();
     }
 
-    public void returnCard(Card card) {
+    public boolean returnCard(Card card) {
         cards.offerLast(card);
+        return false;
     }
 }

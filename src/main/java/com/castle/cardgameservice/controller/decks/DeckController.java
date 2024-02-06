@@ -1,4 +1,4 @@
-package com.castle.cardgameservice.controller;
+package com.castle.cardgameservice.controller.decks;
 
 import com.castle.cardgameservice.dto.CardDTO;
 import com.castle.cardgameservice.service.DeckService;
@@ -23,33 +23,39 @@ public class DeckController {
 
     private final DeckService deckService;
 
+    /**
+     * Endpoint to deal a card from the deck.
+     *
+     * @param sessionId the UUID of the game session
+     * @return ResponseEntity with CardDTO if successful, or a bad request if the deck is empty
+     */
     @GetMapping("/deal")
     public ResponseEntity<CardDTO> dealCard(@PathVariable UUID sessionId) {
-        try {
-            CardDTO cardDTO = deckService.dealCard(sessionId);
-            return ResponseEntity.ok(cardDTO);
-        } catch (IllegalStateException e) {
-            return ResponseEntity.badRequest().build();
-        }
+        return ResponseEntity.ok(deckService.dealCard(sessionId));
     }
 
+    /**
+     * Endpoint to shuffle the deck.
+     *
+     * @param sessionId the UUID of the game session
+     * @return ResponseEntity with no content if successful, or a bad request if the session is not found
+     */
     @PostMapping("/shuffle")
     public ResponseEntity<Void> shuffleDeck(@PathVariable UUID sessionId) {
-        try {
-            deckService.shuffleDeck(sessionId);
-            return ResponseEntity.ok().build();
-        } catch (IllegalStateException e) {
-            return ResponseEntity.badRequest().build();
-        }
+        deckService.shuffleDeck(sessionId);
+        return ResponseEntity.ok().build();
     }
 
+    /**
+     * Endpoint to return a card to the deck.
+     *
+     * @param sessionId the UUID of the game session
+     * @param cardDTO   the CardDTO representing the card to return
+     * @return ResponseEntity with no content if successful, or a bad request if the session is not found
+     */
     @PostMapping("/return")
     public ResponseEntity<Void> returnCard(@PathVariable UUID sessionId, @RequestBody CardDTO cardDTO) {
-        try {
-            deckService.returnCard(sessionId, cardDTO);
-            return ResponseEntity.ok().build();
-        } catch (IllegalStateException e) {
-            return ResponseEntity.badRequest().build();
-        }
+        deckService.returnCard(sessionId, cardDTO);
+        return ResponseEntity.ok().build();
     }
 }
