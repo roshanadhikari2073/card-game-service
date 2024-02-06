@@ -6,20 +6,20 @@ package com.castle.cardgameservice.model;
  * Author: Roshan Adhikari
  */
 public class Card {
-    private String suit;
-    private String value;
+    CardSuit suit;
+    CardValue  value;
 
-    public Card(String suit, String value) {
+    public Card(CardSuit suit, CardValue value) {
         this.suit = suit;
         this.value = value;
     }
 
     // Getters
-    public String getSuit() {
+    public CardSuit getSuit() {
         return suit;
     }
 
-    public String getValue() {
+    public CardValue getValue() {
         return value;
     }
 }

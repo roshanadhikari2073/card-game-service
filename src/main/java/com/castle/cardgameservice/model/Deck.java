@@ -1,6 +1,7 @@
 package com.castle.cardgameservice.model;
 
 import java.util.*;
+import java.util.stream.Stream;
 
 /**
  * Represents a deck of playing cards, supporting operations like shuffle, deal, and return.
@@ -16,20 +17,13 @@ public class Deck {
     }
 
     private void initialize() {
-        // Reset the deck
         cards.clear();
-
-        // Populate the deck with standard 52 cards
-        String[] suits = {"Hearts", "Diamonds", "Clubs", "Spades"};
-        String[] values = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"};
-
-        for (String suit : suits) {
-            for (String value : values) {
+        for (CardSuit suit : CardSuit.values()) {
+            for (CardValue value : CardValue.values()) {
                 cards.offer(new Card(suit, value));
             }
         }
-
-        shuffle(); // Shuffle the deck after initialization
+        shuffle();
     }
 
     public void shuffle() {
@@ -45,6 +39,5 @@ public class Deck {
 
     public void returnCard(Card card) {
         cards.offerLast(card);
-        // Consideration: In a real game, you might want to shuffle the deck after returning a card.
     }
 }

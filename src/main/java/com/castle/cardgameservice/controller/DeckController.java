@@ -29,8 +29,7 @@ public class DeckController {
     @GetMapping("/deal")
     public ResponseEntity<CardDTO> dealCard() {
         Card card = deckService.dealCard();
-        CardDTO cardDTO = new CardDTO(card.getSuit(), card.getValue());
-        return ResponseEntity.ok(cardDTO);
+        return ResponseEntity.ok(new CardDTO(card.getSuit(), card.getValue()));
     }
 
     @PostMapping("/shuffle")
