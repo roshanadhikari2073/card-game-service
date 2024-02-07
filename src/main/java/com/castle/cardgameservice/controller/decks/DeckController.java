@@ -13,9 +13,9 @@ import java.util.UUID;
 /**
  * Rest controller for deck operations within a game session.
  * Provides endpoints for dealing, shuffling, and returning cards from the deck.
- * <p>
+ * 
  * Utilizes DeckService for deck operations and GameSessionService for managing game sessions.
- * <p>
+ * 
  * Author: Roshan Adhikari
  */
 @RestController
