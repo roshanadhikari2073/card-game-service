@@ -1,3 +1,5 @@
+package com.castle.cardgameservice.unit.service;
+
 import com.castle.cardgameservice.dto.CardDTO;
 import com.castle.cardgameservice.model.Deck;
 import com.castle.cardgameservice.service.DeckService;
@@ -16,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-public class DeckTest {
+public class DeckServiceTest {
 
     @Mock
     private GameSessionService gameSessionService;
