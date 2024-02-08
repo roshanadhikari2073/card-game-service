@@ -112,8 +112,8 @@ Replace `{sessionId}` with the actual session ID and provide the card details in
 ## Assumptions
 
 - A new game is created every time the application is restarted/re-run.
-- Create initializes a new deck
-- If there are no decks the deal, shuffle and return will not work
+- Create initialize a new deck
+- If there are no decks the deal, shuffle, and return will not work
 - Deal returns a card from the top of the deck
 - Shuffle re-arranges the deck 
 - Return pushes non-duplicate cards to the deck
