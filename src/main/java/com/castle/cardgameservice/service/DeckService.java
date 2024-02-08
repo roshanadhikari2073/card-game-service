@@ -40,7 +40,9 @@ public class DeckService {
         }
 
         Deck deck = gameSessionService.retrieveSession(sessionId);
-
+        if (deck.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "Deck is empty");
+        }
         Card card = deck.deal();
         return new CardDTO(card.suit(), card.value());
     }
@@ -57,6 +59,9 @@ public class DeckService {
 
         Deck deck = gameSessionService.retrieveSession(sessionId);
 
+        if (deck.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "Deck is empty");
+        }
         deck.shuffle();
         return deck.getCards().stream()
                 .map(card -> new CardDTO(card.suit(), card.value()))

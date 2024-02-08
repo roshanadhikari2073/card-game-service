@@ -46,4 +46,8 @@ public class Deck {
     public void returnCard(Card card) {
         cards.offerLast(card);
     }
+
+    public boolean isEmpty() {
+        return cards.isEmpty();
+    }
 }
